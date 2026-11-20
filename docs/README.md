@@ -17,17 +17,18 @@ Untuk memahami proyek/status, tiga dokumen pertama cukup sebagai titik masuk tan
 
 | Dokumen | Versi | Memiliki informasi tentang |
 |---|---|---|
-| [CURRENT-STATE.md](CURRENT-STATE.md) | 1.19 | Kondisi aktual, feature status, bukti uji/rilis, gap dan next steps. |
+| [CURRENT-STATE.md](CURRENT-STATE.md) | 1.20 | Kondisi aktual, feature status, bukti uji/rilis, gap dan next steps. |
 | [PRD.md](PRD.md) | 0.6.18 draft | Kebutuhan produk, C-1 sampai C-12, Q-1 sampai Q-7, scope/fase dan rollout. |
 | [FEATURES.md](FEATURES.md) | 1.19 planned | UX shell dan kontrak rinci FR-01 sampai FR-22, acceptance criteria. |
 | [DECISIONS.md](DECISIONS.md) | 1.19 | Keputusan tercatat, OQ tetap, pertanyaan aktif, owner/blocker. |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | 1.11 proposed | Rancangan dependency, target source layout, boundaries, threading, storage. |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | 1.12 proposed | Rancangan dependency, target source layout, boundaries, threading, storage. |
+| [ROADMAP.md](ROADMAP.md) | 1.0 planned | Urutan milestone per fase, dependency antar-milestone, blocker OQ dan exit check. Tanpa tanggal (OQ-39). |
 | [CODEMAP.md](CODEMAP.md) | 1.0 (kosong) | Layout source aktual: modul, entry point, public type, kontrak data/IPC, build/test, deviasi dari ARCHITECTURE. |
 | [TECH-STACK.md](TECH-STACK.md) | 1.4 proposed | Dependency/version policy, modul, contoh build tunggal dan catatan API yang dicek ke dokumentasi resmi. |
 | [SETUP.md](SETUP.md) | 1.1 preparation | Prerequisites dan kandidat perintah persiapan; build belum dapat dijalankan. |
 | [VALIDATION.md](VALIDATION.md) | 1.15 planned | Target compatibility, security/packaging/test matrix dan release gates. |
 | [CHANGELOG.md](CHANGELOG.md) | Log | Perubahan dokumentasi yang tercatat; bagian rilis aplikasi terpisah. |
-| [AGENT-GUIDE.md](AGENT-GUIDE.md) | 1.1 | Prosedur onboarding/handoff, perubahan docs, bukti dan freshness. |
+| [AGENT-GUIDE.md](AGENT-GUIDE.md) | 1.2 | Prosedur onboarding/handoff, perubahan docs, bukti dan freshness. |
 
 Versi di tabel adalah **versi dokumen**, bukan versi aplikasi. Dokumen proposed/planned tidak menjadi implemented hanya karena lengkap ditulis.
 
@@ -36,7 +37,7 @@ Versi di tabel adalah **versi dokumen**, bukan versi aplikasi. Dokumen proposed/
 Setiap jenis informasi dimiliki satu dokumen pada tabel di atas. Dokumen lain menautkan rincian, bukan menyimpan salinan lengkapnya. Jika ada konflik, catat gap dan sinkronkan dokumen pemilik; jangan diam-diam mengubah requirement menjadi apa yang kebetulan sudah dikerjakan.
 
 - Keputusan owner berstatus DECIDED yang diwarisi dari PRD lama tetap berlaku; revisi PRD baru masih draft sampai disetujui.
-- Target/fase berada di PRD; perilaku rinci di FEATURES; bukti/status aktual di CURRENT-STATE. Keduanya dapat berbeda tanpa berarti target sudah tercapai.
+- Target/fase berada di PRD; urutan milestone di ROADMAP; perilaku rinci di FEATURES; bukti/status aktual di CURRENT-STATE. Keduanya dapat berbeda tanpa berarti target sudah tercapai.
 - Angka benchmark adalah target sampai laporan hasil dapat dirujuk. Link API/upstream bukan hasil uji integrasi.
 - `docs/adr/` dan `docs/archive/` **belum ada**. Buat hanya saat mempunyai keputusan signifikan atau snapshot asli yang perlu disimpan. Link arsip pada indeks lama dihapus karena file tujuannya tidak tersedia.
 - Tidak ada root README duplikat. Root AGENTS hanya instruksi masuk agent; build/config/license tetap di lokasi teknis yang diperlukan tooling.

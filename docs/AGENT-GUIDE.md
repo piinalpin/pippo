@@ -1,6 +1,6 @@
 # Panduan Agent Pippo
 
-Versi 1.1, diperbarui 2026-11-17. [Indeks](README.md) · [Current state](CURRENT-STATE.md) · [Codemap](CODEMAP.md)
+Versi 1.2, diperbarui 2026-11-20. [Indeks](README.md) · [Current state](CURRENT-STATE.md) · [Roadmap](ROADMAP.md) · [Codemap](CODEMAP.md)
 
 ## 1. Urutan baca
 
@@ -9,6 +9,7 @@ Mulai dengan README dan CURRENT-STATE untuk mengetahui scope dokumen, kondisi ak
 | Tugas | Dokumen lanjutan yang perlu dibaca |
 |---|---|
 | Menjawab status/progres | CURRENT-STATE; CHANGELOG bila perlu riwayat. |
+| Memilih pekerjaan berikutnya | ROADMAP untuk milestone dan blocker OQ; CURRENT-STATE untuk milestone yang sudah punya bukti. |
 | Meninjau scope atau merancang fitur | PRD + bagian FR terkait di FEATURES + OQ terkait di DECISIONS. |
 | Memahami kode atau mencari lokasi perubahan | CODEMAP: indeks modul, kartu modul, kontrak §4. Buka hanya file yang disebut kartu beserta test pemiliknya. |
 | Implementasi/perbaikan fitur | Kontrak FR/UX terkait, kartu modul di CODEMAP, ARCHITECTURE boundary, TECH-STACK dan VALIDATION; kemudian source/test yang disebut kartu. |
@@ -32,6 +33,7 @@ Docs cukup untuk onboarding, planning, status dan penjelasan perilaku yang sudah
 |---|---|
 | Scope, goal, priority atau fase produk | PRD; DECISIONS untuk keputusan/approval; FEATURES bila kontrak berubah. |
 | Behavior/default/limitation fitur | FEATURES; DECISIONS jika menjawab OQ; CURRENT-STATE untuk keadaan nyata. |
+| Urutan, isi atau dependency milestone | ROADMAP; alasan perubahan urutan ke DECISIONS. |
 | Folder/module, data flow, storage atau ownership (rancangan) | ARCHITECTURE. |
 | Folder/module, target CMake, public type, wiring, kontrak data/IPC/config, perintah build/test yang dibuat atau diubah di kode | CODEMAP pada perubahan yang sama; deviasi dari ARCHITECTURE ke CODEMAP §6. |
 | Versi/dependency, build/tooling | TECH-STACK dan SETUP; catat hasil verifikasi. |

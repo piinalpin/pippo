@@ -10,6 +10,13 @@ Belum ada rilis, tag, binary, paket atau release notes aplikasi yang dapat diver
 
 Saat ada rilis nyata, tambahkan versi/tanggal/artefak serta Added/Changed/Fixed/Removed dan catatan breaking change/migration yang relevan. Jangan memasukkan rencana atau target benchmark sebagai hasil rilis.
 
+## Roadmap milestone 2026-11-20
+
+- ROADMAP 1.0 ditambahkan: fase PRD §8 dipecah menjadi milestone P0 (M0.1 fondasi repo, M0.2 shell minimal, M0.3 benchmark, M0.4 spike risiko), MVP (M1.1 sampai M1.6) dan v1 completion (M2.1 sampai M2.6), dengan dependency, blocker OQ dan exit check. Urutan adalah usulan agent, belum disetujui owner; tanpa tanggal (OQ-39).
+- ARCHITECTURE §9 tidak lagi menyimpan daftar urutan; menunjuk ke ROADMAP dan menyisakan prinsip arsitekturnya.
+- CURRENT-STATE: baris Git diperbarui (repository dan remote kini ada), langkah berikutnya merujuk milestone ROADMAP.
+- Versi: CURRENT-STATE 1.20; ARCHITECTURE 1.12; AGENT-GUIDE 1.2; ROADMAP 1.0. PRD tetap 0.6.18 draft.
+
 ## Review kesesuaian PRD dan peta codebase 2026-11-17
 
 - Dokumen dicocokkan terhadap PRD 0.6.18; PRD tidak diubah. Diperbaiki: SQLite vs QSettings dan link modul Qt di SETUP, keyring wajib di FR-08, handler Join pada alur meeting, wording validasi OQ-03, opsi libpulse di TECH-STACK, pernyataan lisensi OQ-14 di indeks.

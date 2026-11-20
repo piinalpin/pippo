@@ -2,8 +2,8 @@
 
 | Metadata | Nilai |
 |---|---|
-| Versi dokumen | 1.19 |
-| Diverifikasi | 2026-11-17, berdasarkan file yang tersedia di workspace ini |
+| Versi dokumen | 1.20 |
+| Diverifikasi | 2026-11-20, berdasarkan file yang tersedia di workspace ini |
 | Tahap | Spesifikasi / pra-implementasi |
 | Versi aplikasi / rilis | Belum ada artefak atau versi aplikasi yang dapat diverifikasi di workspace |
 | Target produk | PRD 0.6.18 draft; OQ-21 dan OQ-24 sampai OQ-33 diputuskan; OQ-34 deferred, keputusan lama dipertahankan |
@@ -23,6 +23,7 @@ pippo/
     ├── PRD.md
     ├── FEATURES.md
     ├── DECISIONS.md
+    ├── ROADMAP.md
     ├── ARCHITECTURE.md
     ├── CODEMAP.md
     ├── TECH-STACK.md
@@ -44,7 +45,7 @@ Pohon ini hanya berkas proyek yang relevan; direktori metadata lingkungan tersem
 | Benchmark RSS/CPU/latency/FPS/soak | Belum dijalankan; semua angka di PRD adalah target. |
 | LICENSE-MIT / LICENSE-APACHE / NOTICE / CONTRIBUTING | Belum tersedia. Keputusan lisensi bukan bukti berkas sudah dibuat. |
 | ADR dan archive versi lama | Tidak tersedia. Riwayat dokumen lama hanya dari tabel changelog yang diwarisi. |
-| Git commit/branch/history | Tidak dapat diambil: `git status` tidak mengenali direktori ini sebagai repository Git yang valid. |
+| Git commit/branch/history | Repository Git dengan remote `origin` (GitHub). Branch `main`: `3ed6b8e` initial commit berisi `.gitignore` (2026-11-16) dan `842eb84` set dokumentasi pertama (2026-11-17). Belum ada tag rilis. |
 | CLI / D-Bus API Pippo / database schema / config contract | Belum diimplementasikan atau distabilkan. Nama pada desain bukan API yang bisa dipanggil. |
 
 Snapshot ini tidak menyimpulkan kondisi repository/deployment lain yang tidak tersedia dalam workspace.
@@ -82,6 +83,8 @@ Tidak ada fitur implemented, verified, atau released yang dapat dicatat saat ini
 
 ## 3. Hasil review dokumentasi
 
+Roadmap (2026-11-20): ROADMAP 1.0 ditambahkan. Fase PRD §8 dipecah menjadi milestone M0.1 sampai M2.6 dengan dependency, blocker OQ dan exit check yang merujuk PRD/VALIDATION. Urutan adalah usulan (agent's call), tanpa tanggal karena OQ-39 masih TBD. ARCHITECTURE §9 kini menunjuk ke ROADMAP agar urutan tidak tercatat dua kali.
+
 Review kesesuaian dengan PRD 0.6.18 (2026-11-17, putaran kedua):
 
 - PRD tidak diubah. Dokumen lain dicocokkan terhadap PRD; ditemukan dan diperbaiki enam ketidaksesuaian kecil: SETUP menyebut settings di SQLite (ARCHITECTURE: QSettings), SETUP mewajibkan link QtNetwork/QtSql/QtTest sejak P0 (TECH-STACK: link saat dipakai), FR-08 membuka opsi penyimpanan key selain keyring (PRD §4: wajib keyring), alur Join menyebut PWA/Teams-for-Linux sebagai pembuka (OQ-28 A: browser default OS), OQ-03 terbaca seolah Layer Shell sudah divalidasi, dan opsi libpulse di FR-05/14 tidak tercatat di TECH-STACK.
@@ -111,8 +114,10 @@ Belum ada bukti bug runtime karena aplikasi belum ada. Risiko di PRD adalah risi
 
 ## 5. Langkah berikutnya
 
-1. Tinjau revisi PRD dan jawab pertanyaan yang memblokir pekerjaan yang akan dipilih; catat keputusan tanpa mengubah status draft menjadi approved otomatis.
-2. Saat implementasi diminta, mulai P0 shell minimal sesuai ARCHITECTURE; siapkan kombinasi distro/Qt/compositor/portal yang akan diuji. Review dokumentasi ini tidak memulai implementasi.
+Urutan milestone dan blocker keputusan ada di [ROADMAP](ROADMAP.md). Belum ada milestone yang dimulai.
+
+1. Tinjau revisi PRD dan urutan ROADMAP; jawab OQ yang memblokir milestone terdekat (OQ-38 sebelum M0.3, OQ-36 sebelum M1.3). Catat keputusan tanpa mengubah status draft menjadi approved otomatis.
+2. Saat implementasi diminta, mulai M0.1 fondasi repo lalu M0.2 shell minimal; siapkan kombinasi distro/Qt/compositor/portal yang akan diuji. Review dokumentasi ini tidak memulai implementasi.
 3. Rekam bukti per FR/C/Q pada VALIDATION/CURRENT-STATE saat tersedia, termasuk revisi source dan environment; hasil spike yang mengubah desain masuk ADR/DECISIONS.
 4. Sebelum beta, penuhi gates packaging, license files/audit, upgrade/recovery, privacy dan support. Jangan membuat placeholder fitur P2.
 
@@ -124,7 +129,7 @@ Belum ada bukti bug runtime karena aplikasi belum ada. Risiko di PRD adalah risi
 | Konsistensi requirement | ID FR-01 sampai FR-22 dan OQ-01 sampai OQ-34 dipertahankan; OQ-35 sampai OQ-39 tambahan review. |
 | Dokumentasi Qt/QML build | Diambil melalui Context7 dari dokumentasi resmi Qt untuk executable QML backing target dan policy baseline. Bukan uji compile/runtime. |
 | Dokumentasi stack lain (putaran kedua) | Context7: Qt 6.8 (`/websites/doc_qt_io_qt-6_8`), layer-shell-qt (`/kde/layer-shell-qt`), xdg-desktop-portal (`/flatpak/xdg-desktop-portal`), WirePlumber (`/pipewire/wireplumber`). Hasil di TECH-STACK §3. Bukan uji compile, runtime atau compositor. |
-| Link internal, anchor dan struktur Markdown | PASS (putaran kedua): 13 berkas Markdown dan 82 link/anchor lokal, 0 rusak; struktur tabel/fences serta kelengkapan FR/OQ/C/Q diperiksa. Tidak memvalidasi link eksternal/provider aktif atau berizin. |
+| Link internal, anchor dan struktur Markdown | PASS (2026-11-20, setelah ROADMAP): 14 berkas Markdown dan 99 link/anchor lokal, 0 rusak; struktur tabel/fences serta kelengkapan FR/OQ/C/Q diperiksa. Tidak memvalidasi link eksternal/provider aktif atau berizin. |
 | Build/test/benchmark/package | Tidak dijalankan; source dan build definition belum tersedia. |
 | Endpoint FX MoneyMatch | GET pada 2026-11-17 11:26:08 WIB memberi HTTP 200, MIME text/html; charset=utf-8, body `4442.1491`; [bukti dan batas klaim](FEATURES.md#pemeriksaan-endpoint-moneymatch). Belum implementasi/integration test; Context7 tidak menemukan dokumentasi MoneyMatch. |
 | Paket distro / API lainnya | Tidak diuji ulang; SETUP/FEATURES menyebut status kandidat/perlu verifikasi. |

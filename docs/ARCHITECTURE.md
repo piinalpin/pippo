@@ -2,8 +2,8 @@
 
 | Metadata | Nilai |
 |---|---|
-| Versi dokumen | 1.11 |
-| Diperbarui | 2026-11-17 |
+| Versi dokumen | 1.12 |
+| Diperbarui | 2026-11-20 |
 | Status | Proposed engineering baseline; belum diimplementasikan/divalidasi |
 | Constraint produk | C++20, Qt 6 / Qt Quick / QML; KDE Plasma Wayland + Hyprland x86_64 |
 
@@ -179,11 +179,7 @@ Soft review triggers (bukan limit CI): main.cpp sekitar 80-100 LOC, bootstrap 20
 
 ## 9. Urutan implementasi yang disarankan
 
-1. P0 shell minimal: bootstrap, shell, media/system pilot, QML composition, Layer Shell; uji dua desktop, input/focus/fullscreen dan benchmark.
-2. P0 spike risiko: clipboard, audio routing, shortcut fallback, notification observation, Teams action probe, scheduler/idle inhibitor, Calendar offline dan FX permission. Rekam capability dan bukti; bukan produksi adapter untuk API yang belum diizinkan.
-3. P1 MVP: battery, audio/controls, clipboard, notes/keyring, remote AI, first-party alerts, reminders/Caffeine dan satu adapter agent; tambah file hanya saat fitur dikerjakan.
-4. P1 completion: salat, brightness internal, Calendar, FX gated, meeting/Join/call gated, external notifications sesuai adapter, a11y/i18n/multi-monitor dan packaging.
-5. Readiness: unit/controller/adapter/UI/E2E sesuai VALIDATION, soak/benchmark, license audit, paket dan dokumen penggunaan berdasarkan perilaku nyata. P2 menunggu scope/kontrak tersendiri.
+Urutan milestone, dependency dan blocker dimiliki [ROADMAP](ROADMAP.md). Prinsip arsitektur untuk urutan itu: shell dan Layer Shell dibuktikan dulu di dua desktop, spike risiko merekam capability tanpa membuat adapter produksi untuk API yang belum diizinkan, dan file modul ditambahkan hanya saat fiturnya dikerjakan.
 
 Arsitektur baru dianggap tervalidasi setelah bukti lifecycle, overlay kedua desktop, focus/state, MPRIS pilot, responsive GUI, lifetime/threading, test seams, packaging, source gates dan benchmark tersedia. Saat ini tidak ada bukti tersebut. Keputusan signifikan berdasarkan hasil dicatat sebagai ADR saat diperlukan; belum ada ADR bernomor yang sudah dibuat/disetujui.
 
