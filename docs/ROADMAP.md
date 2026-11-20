@@ -2,9 +2,9 @@
 
 | Metadata | Nilai |
 |---|---|
-| Versi dokumen | 1.0 |
+| Versi dokumen | 1.2 |
 | Diperbarui | 2026-11-20 |
-| Status | planned; urutan milestone adalah (agent's call), belum disetujui owner |
+| Status | Urutan approved oleh product owner pada 2026-11-20; blocker OQ diperbarui |
 | Tanggal / owner | TBD (OQ-39) |
 
 [Indeks](README.md) · [Current state](CURRENT-STATE.md) · [PRD](PRD.md) · [Fitur](FEATURES.md) · [Validasi](VALIDATION.md)
@@ -21,7 +21,7 @@ Hal berikut bukan milik roadmap:
 - Progres dan bukti dimiliki [CURRENT-STATE](CURRENT-STATE.md). Milestone di sini tidak diberi tanda selesai.
 - Lokasi kode dimiliki [CODEMAP](CODEMAP.md).
 
-Tidak ada tanggal karena kapasitas, budget dan owner masih TBD (OQ-39). Jangan menambahkan estimasi waktu sampai owner menetapkannya.
+Urutan milestone disetujui tanpa tanggal; kapasitas, budget, owner bernama dan jadwal masih TBD (OQ-39). Jangan menambahkan estimasi waktu sampai owner menetapkannya.
 
 ## 2. Ringkasan urutan
 
@@ -98,7 +98,7 @@ Urutan mengikuti dependency teknis. Milestone setelah M1.1 dapat paralel kecuali
 |---|---|---|---|
 | M1.1 Layanan inti | Storage SQLite + migration, QSettings, keyring, single instance, FR-11 alerts/recovery, FR-10 preferences dan menu | Gate P0 | Data bertahan setelah restart; migration teruji; secret tidak masuk log (Q-5). |
 | M1.2 Sistem & audio | FR-02 battery, FR-05 controls tanpa brightness, FR-14 audio mixer | M1.1; spike audio dan shortcut | Stream A berubah tanpa mengubah B; shortcut kosong secara default; unavailable diberi alasan. |
-| M1.3 Data lokal | FR-04 clipboard, FR-06 notes | M1.1; spike clipboard; keputusan OQ-36 | Retention dan quota ditegakkan tanpa kehilangan diam-diam; konten bertahan setelah restart. |
+| M1.3 Data lokal | FR-04 clipboard, FR-06 notes | M1.1; spike clipboard; terapkan OQ-36 | Retention dan quota ditegakkan tanpa kehilangan diam-diam; item pinned mengikuti aturan DECISIONS; konten bertahan setelah restart. |
 | M1.4 AI remote | FR-08 OpenAI, Anthropic, custom-compatible | M1.1 (keyring); M1.3 untuk konteks clipboard/notes | Submit eksplisit, stop, error 401/429 teruji; tidak ada pengiriman otomatis. |
 | M1.5 Reminder & Caffeine | FR-20, FR-22 | M1.1; spike scheduler + inhibitor | Kontrak OQ-32 dan OQ-33 lulus di kedua desktop. |
 | M1.6 Notifikasi & agent | FR-15 jalur first-party, FR-19 adapter Codex CLI | M1.1; spike notifikasi dan Codex CLI | Notifikasi + Open Agent tanpa Approve/Reject; tidak ada popup ganda. |
@@ -127,7 +127,6 @@ FR-09 SSO, FR-21 server monitor dan kandidat PRD §6 tidak mempunyai milestone. 
 | OQ | Memblokir | Kapan harus diputus |
 |---|---|---|
 | OQ-38 protokol benchmark | M0.3, klaim lulus Q-1 sampai Q-4 | Sebelum M0.3 |
-| OQ-36 pinned vs quota clipboard | M1.3 | Sebelum M1.3 |
 | OQ-11 metode salat | M2.1 bagian salat | Sebelum M2.1 |
 | OQ-17 Bahasa Indonesia | M2.5 bagian terjemahan | Sebelum M2.5 |
 | OQ-37 minimum Qt dan matriks distro | M2.6, klaim compatibility | Kandidat sebelum M0.1, final sebelum M2.6 |
@@ -135,6 +134,8 @@ FR-09 SSO, FR-21 server monitor dan kandidat PRD §6 tidak mempunyai milestone. 
 | OQ-35 bukti masalah dan metrik G-1 | Evaluasi G-1 saat beta, bukan pekerjaan teknis | Sebelum beta |
 
 Spike P0 tidak menunggu OQ-35 atau OQ-39.
+
+OQ-36 sudah DECIDED; M1.3 memverifikasi perilaku quota/pinned, bukan menunggu keputusan produk.
 
 ## 8. Memelihara roadmap
 

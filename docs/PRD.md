@@ -1,6 +1,6 @@
 ---
 title: Pippo
-status: draft
+status: approved
 size: full
 version: 0.6.18
 date: 2026-11-17
@@ -15,7 +15,7 @@ Dynamic Island / Notch untuk Linux.
 
 PRD ini memisahkan kebutuhan tingkat produk dari kontrak fitur, rancangan teknis dan status implementasi. Revisi 0.6.18 mempertahankan keputusan lama serta keputusan Q&A: OQ-21 endpoint FX custom/JSON/angka polos, OQ-24 notifikasi Pippo + opt-in integrasi eksternal tersedia, OQ-25 kontrol playback stream aktif tanpa microphone per aplikasi atau aturan routing permanen v1, OQ-26 shortcut Audio Mixer kosong/configurable dengan pemberitahuan konflik, serta OQ-27 sinkronisasi kalender Microsoft berizin + input waktu/link manual sebagai fallback.
 
-Untuk OQ-28, handler Join dipilih browser default OS yang dapat diganti user; reminder tambahan saat mulai opsional dan default OFF, dapat diaktifkan user. Status keseluruhan tetap draft; persetujuan keputusan satu fitur tidak berarti persetujuan seluruh PRD. Semua fitur masih berupa rencana di workspace ini. Riwayat dan rationale keputusan ada di CHANGELOG dan DECISIONS.
+Untuk OQ-28, handler Join dipilih browser default OS yang dapat diganti user; reminder tambahan saat mulai opsional dan default OFF, dapat diaktifkan user. **PRD 0.6.18 disetujui pada 2026-11-20 berdasarkan persetujuan product owner di percakapan proyek.** Persetujuan PRD menetapkan baseline scope dan requirement; OQ-35–39 terbuka pada saat persetujuan, dan status mutakhirnya dicatat di DECISIONS. Semua fitur masih berupa rencana di workspace ini. Riwayat dan rationale keputusan ada di CHANGELOG dan DECISIONS.
 
 ## 1. Ringkasan dan visi
 
@@ -164,7 +164,7 @@ Ukur G-1 dengan bukti tugas pengguna yang disepakati di OQ-35; ukur teknis mengg
 
 Register lengkap dengan ID, owner per peran, blocker dan rationale ada di [DECISIONS](DECISIONS.md). OQ-21 dan OQ-24 sampai OQ-33 sudah DECIDED; OQ-34 DEFERRED/P2 optional sampai owner menyediakan contoh API/auth. OQ-22/23 tetap ditutup karena public holiday dikeluarkan dari scope. Kondisi OQ-11/15/17 tetap berlaku.
 
-OQ-32 lengkap: minimum interval 1 menit; interval awal form kosong/wajib diisi; catch-up maksimal satu ringkasan per reminder lalu jadwal normal; snooze 5/10/15 menit + custom default 10; DND sistem tanpa quiet-hours scheduler tambahan; akhir default terus sampai dimatikan dengan opsi tanggal/jumlah. Requirement lain tetap pada capabilities dan FEATURES, tanpa menyatakan integrasi telah diuji. Pertanyaan aktif tersisa OQ-35 sampai OQ-39.
+OQ-32 lengkap: minimum interval 1 menit; interval awal form kosong/wajib diisi; catch-up maksimal satu ringkasan per reminder lalu jadwal normal; snooze 5/10/15 menit + custom default 10; DND sistem tanpa quiet-hours scheduler tambahan; akhir default terus sampai dimatikan dengan opsi tanggal/jumlah. Requirement lain tetap pada capabilities dan FEATURES, tanpa menyatakan integrasi telah diuji. Status OQ-35 sampai OQ-39 mengikuti register DECISIONS.
 
 Yang belum dapat difinalkan: kontrak akses/rate-limit FX, capability adapter notifikasi yang teruji, dukungan dan deteksi konflik shortcut per desktop, autentikasi/izin tenant kalender Microsoft, validasi scheduler meeting dan handler Teams, validasi direct call actions dan ketersediaan/privasi metadata caller, jalur event dan handoff Codex CLI, sisa default reminder dan validasi inhibitor Caffeine, serta metrik produk dan kesiapan rilis. Owner spesifik dan due date masih TBD. Pertanyaan P2 tidak menahan spike independen P0.
 

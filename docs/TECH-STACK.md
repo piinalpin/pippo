@@ -2,8 +2,8 @@
 
 | Metadata | Nilai |
 |---|---|
-| Versi dokumen | 1.4 |
-| Diperbarui | 2026-11-17 |
+| Versi dokumen | 1.5 |
+| Diperbarui | 2026-11-20 |
 | Status | Rancangan dependency; belum ada manifest, build, lockfile atau CI |
 | Target | C++20 + Qt 6 Quick/QML, Linux x86_64 KDE Plasma Wayland + Hyprland |
 
@@ -17,7 +17,7 @@ C++20 + Qt6/QML adalah constraint produk (OQ-03). CMake + Ninja adalah baseline 
 |---|---|---|
 | C++ | C++20 | Keputusan produk; compiler/build belum diuji. |
 | GCC / Clang | Compiler distro yang mendukung C++20 | Versi minimum final TBD. Tidak harus memasang keduanya. |
-| Qt 6 | Kandidat minimum 6.8 untuk contoh di bawah **(agent's call)** | OQ-37: contoh lama memuat 6.5 dan 6.8; belum ada versi supported. |
+| Qt 6 | Qt 6.8 kandidat untuk M0.1 (diterima owner) | OQ-37: bukan minimum supported final; build dan matriks distro/compositor/portal belum diuji. |
 | CMake | Kandidat minimum 3.24 dari dokumen sebelumnya | Belum ada CMakeLists/CI untuk membuktikannya. |
 | Ninja / pkg-config | Paket distro | Belum diuji; bukan runtime dependency pengguna. |
 | Layer Shell Qt / Qt Wayland | Paket kompatibel dengan Qt distro | Overlay kedua compositor wajib diuji. |
@@ -54,7 +54,7 @@ Metadata PipeWire tidak menjamin stream terpisah setiap tab PWA. Qt clipboard ti
 
 ## 3. Contoh build tunggal
 
-Contoh ini **ilustrasi untuk source yang belum ada**, bukan perintah menghasilkan aplikasi dari workspace saat ini. Layout mengikuti ARCHITECTURE. Qt 6.8 adalah kandidat editorial, bukan keputusan minimum supported; ubah setelah OQ-37 mempunyai bukti.
+Contoh ini **ilustrasi untuk source yang belum ada**, bukan perintah menghasilkan aplikasi dari workspace saat ini. Layout mengikuti ARCHITECTURE. Qt 6.8 diterima sebagai kandidat untuk M0.1, bukan minimum supported; finalisasi setelah OQ-37 punya bukti build dan matriks dukungan.
 
 Root `CMakeLists.txt` yang direncanakan:
 

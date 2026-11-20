@@ -2,7 +2,7 @@
 
 | Metadata | Nilai |
 |---|---|
-| Versi dokumen | 1.1 |
+| Versi dokumen | 1.2 |
 | Diperbarui | 2026-11-17 |
 | Status | Panduan persiapan; source dan build belum tersedia |
 
@@ -12,7 +12,7 @@ Perintah instalasi di bawah dipindahkan dari indeks lama dan **belum dijalankan 
 
 ## Prerequisites
 
-Panduan ini untuk **mengembangkan Pippo dari source**, bukan daftar dependency minimal pengguna akhir. Pippo memakai **C++20, Qt 6 / Qt Quick / QML, CMake + Ninja** dan menargetkan **Linux x86_64 dengan sesi KDE Plasma Wayland atau Hyprland**. Kandidat minimum Qt untuk contoh adalah **6.8 (agent's call)**; minimum supported final masih TBD pada OQ-37, belum ada hasil uji compatibility P0.
+Panduan ini untuk **mengembangkan Pippo dari source**, bukan daftar dependency minimal pengguna akhir. Pippo memakai **C++20, Qt 6 / Qt Quick / QML, CMake + Ninja** dan menargetkan **Linux x86_64 dengan sesi KDE Plasma Wayland atau Hyprland**. Qt **6.8 diterima owner sebagai kandidat untuk M0.1**; ini belum minimum supported final. OQ-37 menunggu hasil uji compatibility dan matriks distro/compositor/portal.
 
 ### 1. Yang wajib tersedia untuk P0
 

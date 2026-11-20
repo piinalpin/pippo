@@ -2,13 +2,13 @@
 
 | Metadata | Nilai |
 |---|---|
-| Versi dokumen | 1.19 |
-| Diperbarui | 2026-11-17 |
-| Status | Register dari PRD v0.5.2 + gap review dokumentasi |
+| Versi dokumen | 1.21 |
+| Diperbarui | 2026-11-20 |
+| Status | Register dari PRD v0.5.2 + keputusan rekomendasi OQ-35–39 tanggal 2026-11-20 |
 
 [Indeks](README.md) · [PRD](PRD.md) · [Fitur](FEATURES.md) · [Changelog](CHANGELOG.md)
 
-Keputusan berstatus DECIDED di bawah diwarisi dari catatan owner dalam PRD v0.5.2. Review ini mempertahankannya; tidak menyatakan draft revisi PRD telah disetujui. ID tetap, tidak didaur ulang. Tanggal persetujuan individual dan bukti percakapan lama tidak tersedia di workspace ini.
+Keputusan DECIDED pada register lama diwarisi dari catatan owner dalam PRD v0.5.2. ID tetap dan tidak didaur ulang. Keputusan baru mencatat tanggal penerimaan secara terpisah; persetujuan PRD/ROADMAP berlaku sesuai revisi yang tercatat.
 
 **Legend:** `DECIDED` = requirement final untuk v1 sesuai scope; `CONDITIONAL` = aturan sudah diputus tetapi bergantung bukti/kapasitas; `OPEN` = belum diputus; `PARTIALLY DECIDED` = sebagian jawaban sudah diputus, sisanya tetap terbuka; `DEFERRED` = dikeluarkan dari v1 dengan syarat review fase berikutnya.
 
@@ -56,17 +56,17 @@ OQ-03 dan OQ-14 tetap final menurut catatan PRD v0.5.2. Tabel ini mempertahankan
 | **OQ-33** | **DECIDED (2026-11-17, rekomendasi diterima owner)** | Caffeine default OFF; saat diaktifkan durasi default 30 menit dan hanya menahan display idle. Suspend inhibition terpisah, hanya jika user mengaktifkan secara eksplisit dan backend mendukung. | Manual lock, kebijakan OS/admin dan critical battery tetap berlaku. Mode manual/indefinite memerlukan status aktif yang terlihat dan kontrol OFF. Tidak menetapkan threshold auto-stop baterai baru dari Q&A ini. | Scope: owner; pengujian inhibitor: TBD engineering | Default tidak lagi terbuka; efektivitas backend, expiry/off dan manual lock belum diuji. |
 | **OQ-34** | **DEFERRED / P2 OPTIONAL (2026-11-17, rekomendasi diterima owner)** | Server/VM/bare-metal monitor tetap di luar MVP/v1; tunggu contoh endpoint liveness/readiness dan autentikasi dari owner sebelum membahas detail integrasi. | Tidak membuat generic monitor, scaffold/interface, dependency atau polling pada P1. Skema, interval, grouping dan alert baru dievaluasi bersama kontrak API pada P2; bukan blocker v1. | Kontrak API: owner ketika P2 dimulai; engineering belum ditugaskan | Hanya pekerjaan P2 setelah kontrak tersedia; tidak memblokir P0/P1. |
 
-## Gap hasil review 2026-11-17
+## Gap hasil review dan tindak lanjut owner 2026-11-20
 
-Pertanyaan baru ini tidak mengubah scope. Penetapan owner berdasarkan peran dan klasifikasi blocker merupakan **(agent's call)**; nama penanggung jawab masih TBD. Pertanyaan nonblocking tidak menahan spike P0 yang independen.
+Product owner menerima rekomendasi berikut pada 2026-11-20. OQ-36 diputuskan; OQ-35, OQ-37 dan OQ-38 sebagian diputuskan dengan bukti atau parameter tersisa; OQ-39 tetap terbuka. Penetapan owner berdasarkan peran merupakan **(agent's call)**; nama penanggung jawab masih TBD. Pertanyaan nonblocking tidak menahan spike P0 yang independen.
 
-| ID | Pertanyaan | Owner | Memblokir | Tindak lanjut |
-|---|---|---|---|---|
-| OQ-35 | Apa bukti masalah pengguna, ukuran baseline perpindahan konteks, dan target keberhasilan tugas mikro? Mengapa sekarang? | TBD (product owner) | Persetujuan metrik outcome, bukan spike | Rekam wawancara/observasi atau data; tetapkan target tanpa angka karangan. |
-| OQ-36 | Bagaimana clipboard mengatasi quota/retention ketika seluruh item pinned atau pinned melewati 30 hari? | TBD (product owner + engineering) | Finalisasi FR-04 | Putuskan precedence pin/retention, perilaku full quota, dan feedback user; jangan menghapus pinned diam-diam. |
-| OQ-37 | Berapa minimum Qt yang benar-benar didukung dan kombinasi versi distro/compositor/portal yang menjadi target paket? | TBD (engineering + release owner) | Klaim compatibility dan paket publik | Qt 6.5/6.8 pada contoh lama belum teruji. Kandidat 6.8 untuk contoh konsisten adalah (agent's call), bukan minimum final. Uji paket distro dan catat matriks. |
-| OQ-38 | Berapa warm-up, jumlah sampel latency, ambang RSS growth soak, toleransi sampling CPU/RAM, dan periode/denominator crash-free? | TBD (engineering / QA) | Klaim lulus performance/reliability | Tetapkan protokol reproducible dan laporan tanpa telemetry wajib; target yang ada tetap target. |
-| OQ-39 | Siapa owner produk/engineering/release, kapasitas/budget, peserta beta, tanggal fase, kanal support, dan prosedur rollback paket/data? | TBD (product owner + release owner) | Jadwal komitmen dan kesiapan beta publik | Tetapkan rencana beta, dukungan, upgrade/migration/backup dan rollback sebelum rilis. |
+| ID | Status | Pertanyaan | Owner | Memblokir | Keputusan / tindak lanjut |
+|---|---|---|---|---|---|
+| OQ-35 | **PARTIALLY DECIDED (2026-11-20)** | Apa bukti masalah pengguna, ukuran baseline perpindahan konteks, dan target keberhasilan tugas mikro? Mengapa sekarang? | TBD (product owner) | Target outcome sebelum beta; bukan blocker spike teknis | **Diputuskan:** ukur keberhasilan dan waktu penyelesaian untuk tugas mikro yang disepakati sebelum beta; tetapkan target setelah baseline ada. Bukti wawancara/observasi atau data serta target numerik masih TBD. |
+| OQ-36 | **DECIDED (2026-11-20)** | Bagaimana clipboard mengatasi quota/retention ketika seluruh item pinned atau pinned melewati 30 hari? | Product owner (scope); engineering (implementasi) | Tidak lagi memblokir keputusan M1.3; perilaku harus dipenuhi dan diuji | Pinned item tidak dihapus karena umur, tetapi tetap dihitung terhadap quota; setelah di-unpin, item yang melewati 30 hari eligible untuk dihapus. Saat item baru membuat batas terlampaui, evict item unpinned yang sudah ada, tertua dulu, sampai item baru muat. Jika tidak ada item lama yang dapat dievict, tolak item baru dengan feedback agar user menghapus/unpin item. Jangan hapus pinned diam-diam. |
+| OQ-37 | **PARTIALLY DECIDED (2026-11-20)** | Berapa minimum Qt yang benar-benar didukung dan kombinasi versi distro/compositor/portal yang menjadi target paket? | TBD (engineering + release owner) | Minimum final dan klaim compatibility sebelum M2.6; kandidat cukup untuk mulai M0.1 | Target uji mencakup KDE Plasma Wayland dan Hyprland; Qt 6.8 menjadi kandidat untuk M0.1. Minimum final dan versi distro/compositor/portal baru ditetapkan setelah build serta uji paket; catat matriks hasil. |
+| OQ-38 | **PARTIALLY DECIDED (2026-11-20)** | Berapa warm-up, jumlah sampel latency, ambang RSS growth soak, toleransi sampling CPU/RAM, dan periode/denominator crash-free? | TBD (engineering / QA) | Sahkan parameter tersisa sebelum M0.3 dan klaim performance/reliability | Protokol awal: warm-up 5 menit; 100 sampel per interaksi untuk p50/p95; pengukuran idle 10 menit; soak 24 jam. Engineering/QA masih harus menetapkan sampling CPU/RAM, ambang RSS growth, crash-free denominator/periode dan lingkungan reproducible. Telemetry tidak wajib. |
+| OQ-39 | **OPEN** | Siapa owner produk/engineering/release, kapasitas/budget, peserta beta, tanggal fase, kanal support, dan prosedur rollback paket/data? | TBD (product owner + release owner) | Jadwal komitmen dan kesiapan beta publik | Tetapkan owner per peran, kapasitas, rencana dukungan dan prosedur upgrade/backup/rollback sebelum menyusun tanggal fase atau mengundang peserta beta. Nama, kapasitas, tanggal dan peserta tetap TBD. |
 
 ## Asumsi editorial revisi
 

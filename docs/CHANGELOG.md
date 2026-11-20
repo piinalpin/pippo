@@ -10,6 +10,34 @@ Belum ada rilis, tag, binary, paket atau release notes aplikasi yang dapat diver
 
 Saat ada rilis nyata, tambahkan versi/tanggal/artefak serta Added/Changed/Fixed/Removed dan catatan breaking change/migration yang relevan. Jangan memasukkan rencana atau target benchmark sebagai hasil rilis.
 
+## Sinkronisasi kandidat Qt 6.8 2026-11-20
+
+- TECH-STACK 1.5 dan SETUP 1.2 mencatat Qt 6.8 sebagai kandidat M0.1 yang diterima owner, bukan minimum supported final. OQ-37 tetap menunggu build dan matriks distro/compositor/portal.
+- Indeks diperbarui. Tidak ada build atau uji compatibility.
+
+## Keputusan rekomendasi OQ-35–39 2026-11-20
+
+- Product owner menerima rekomendasi: OQ-36 DECIDED; OQ-35, OQ-37 dan OQ-38 PARTIALLY DECIDED; OQ-39 tetap OPEN. Rincian dan sisa bukti/parameter ada di DECISIONS 1.21.
+- FR-04 diperjelas di FEATURES 1.20: pin melewati retention tetapi tetap dihitung dalam quota; eviction memilih item unpinned tertua; jika tak ada yang dapat dihapus, item baru ditolak dengan feedback.
+- ROADMAP 1.2 menghapus OQ-36 sebagai blocker keputusan M1.3; milestone tetap menguji kebijakan itu. CURRENT-STATE naik ke 1.24. Tidak ada source, implementasi atau pengujian.
+- PRD 0.6.18 tetap baseline approved; keterangan OQ diperjelas sebagai status saat persetujuan dan diarahkan ke DECISIONS untuk status terbaru. Requirement produk tidak berubah.
+
+## Persetujuan ROADMAP 1.0 2026-11-20
+
+- Product owner menyetujui urutan milestone dan exit check ROADMAP 1.0; metadata naik ke ROADMAP 1.1 approved. Tanggal dan owner bernama tetap TBD melalui OQ-39.
+- CURRENT-STATE naik ke 1.23. M0.1 dapat dimulai dengan Qt 6.8 sebagai kandidat; minimum final tetap menunggu bukti OQ-37.
+
+## Persetujuan PRD 0.6.18 2026-11-20
+
+- Product owner menyetujui PRD 0.6.18; status draft diubah menjadi approved. Persetujuan berlaku untuk revisi tersebut dan menetapkan baseline scope/requirement.
+- OQ-35 sampai OQ-39 tetap terbuka; rekomendasinya di DECISIONS belum menjadi keputusan owner. ROADMAP saat itu masih menunggu persetujuan terpisah; disetujui pada pembaruan berikutnya.
+- CURRENT-STATE naik ke 1.22. Tidak ada perubahan fitur, implementasi atau pengujian.
+
+## Rekomendasi pertanyaan terbuka 2026-11-20
+
+- DECISIONS 1.20 mencatat rekomendasi awal OQ-35–39. Rekomendasi kemudian diterima sebagian pada pembaruan 2026-11-20; keputusan aktual ada di DECISIONS 1.21.
+- CURRENT-STATE naik ke 1.21 saat rekomendasi dicatat; pembaruan berikutnya menyetujui PRD 0.6.18 dan ROADMAP, lalu memperbarui status OQ. Implementasi dan pengujian tidak dilakukan.
+
 ## Roadmap milestone 2026-11-20
 
 - ROADMAP 1.0 ditambahkan: fase PRD §8 dipecah menjadi milestone P0 (M0.1 fondasi repo, M0.2 shell minimal, M0.3 benchmark, M0.4 spike risiko), MVP (M1.1 sampai M1.6) dan v1 completion (M2.1 sampai M2.6), dengan dependency, blocker OQ dan exit check. Urutan adalah usulan agent, belum disetujui owner; tanpa tanggal (OQ-39).

@@ -2,7 +2,7 @@
 
 | Metadata | Nilai |
 |---|---|
-| Versi dokumen | 1.19 |
+| Versi dokumen | 1.20 |
 | Diperbarui | 2026-11-17 |
 | Status | Spesifikasi rencana; seluruh fitur belum diimplementasikan di workspace ini |
 | Asal | Rincian UX dan FR-01 sampai FR-22 dari PRD v0.5.2 |
@@ -131,7 +131,7 @@ Semua ID harus ditautkan ke bukti pengujian ketika implementasi tersedia. P0/P1 
 ### FR-04: Clipboard History, termasuk Image [P1]
 
 - Simpan teks/URL dan gambar **PNG/JPEG** (`image/png`, `image/jpeg` maupun konversi aman dari format clipboard lain jika didukung) saat backend memberi izin; GIF dan SVG bukan v1. Search text, preview thumbnail image, pin/unpin, delete, clear, **restore-to-clipboard** dan retention settings.
-- Default **diputuskan**: maksimum **500 item**, maksimum **30 hari**, dan kuota gabungan **250 MiB**; maksimal **20 MiB per item** sebagai guardrail awal yang bisa dikonfigurasi. Tetapkan eviction rule paling lama/dulu saat melebihi limit; pinned items tetap terhitung terhadap kuota dan memerlukan aturan eksplisit (jangan diam-diam menghapus pinned item). Lazy-load image thumbnail; dedupe salinan identik berturut-turut.
+- Default **diputuskan**: maksimum **500 item**, maksimum **30 hari**, dan kuota gabungan **250 MiB**; maksimal **20 MiB per item** sebagai guardrail awal yang bisa dikonfigurasi. Pinned items tidak terhapus karena umur tetapi tetap dihitung terhadap quota; setelah di-unpin, item yang melewati retention eligible untuk dihapus. Saat item baru membuat batas terlampaui, hapus item unpinned yang sudah ada, tertua dulu, sampai item baru muat. Jika tidak ada item lama yang dapat dihapus, tolak item baru dengan feedback agar user menghapus/unpin item. Jangan menghapus pinned diam-diam. Lazy-load image thumbnail; dedupe salinan identik berturut-turut.
 - Riwayat *local only* secara default, `pause recording`, `clear history`, optional incognito, dan upayakan mengabaikan konten dengan sensitive/password-manager hints; tidak menjamin semua password dapat dideteksi.
 - Backend utama: KDE Wayland dan Hyprland melalui data-control/desktop integration yang tersedia; capability diprobe pada runtime dan harus di-benchmark tanpa polling agresif. X11 dan GNOME adalah **future candidates**. Jika background clipboard tidak tersedia, tampilkan unsupported/error yang jujur; **restore-to-clipboard adalah standar v1**, auto-paste hanya optional per backend yang dapat melakukannya aman dan tidak menginjeksi input diam-diam.
 - **AC:** teks, PNG, dan JPEG muncul dengan preview benar di KDE/Hyprland supported configurations; survive reboot sampai batas retention; cap item/day/bytes ditegakkan; restore-to-clipboard valid; auto-paste **disabled kecuali** backend aman dan user mengaktifkannya; tidak ada konten otomatis terkirim ke AI; clear/pause menghentikan capture; sensitive hints yang tersedia dihormati.

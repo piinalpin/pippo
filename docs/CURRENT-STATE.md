@@ -2,11 +2,11 @@
 
 | Metadata | Nilai |
 |---|---|
-| Versi dokumen | 1.20 |
+| Versi dokumen | 1.24 |
 | Diverifikasi | 2026-11-20, berdasarkan file yang tersedia di workspace ini |
 | Tahap | Spesifikasi / pra-implementasi |
 | Versi aplikasi / rilis | Belum ada artefak atau versi aplikasi yang dapat diverifikasi di workspace |
-| Target produk | PRD 0.6.18 draft; OQ-21 dan OQ-24 sampai OQ-33 diputuskan; OQ-34 deferred, keputusan lama dipertahankan |
+| Target produk | PRD 0.6.18 approved (2026-11-20); OQ-21, OQ-24–33 dan OQ-36 diputuskan; OQ-34 deferred; OQ-35/37/38 parsial, OQ-39 terbuka |
 
 [Indeks](README.md) · [PRD](PRD.md) · [Fitur](FEATURES.md) · [Keputusan](DECISIONS.md) · [Changelog](CHANGELOG.md)
 
@@ -59,7 +59,7 @@ Snapshot ini tidak menyimpulkan kondisi repository/deployment lain yang tidak te
 | FR-01 CPU/RAM | not-started | P0; sampler dan toleransi ukur. |
 | FR-02 Battery | not-started | MVP; UPower/absent state. |
 | FR-03 Now Playing | not-started | P0; MPRIS-capable player. |
-| FR-04 Clipboard | not-started | MVP; backend kedua desktop + OQ-36 pinned/quota. |
+| FR-04 Clipboard | not-started | MVP; backend kedua desktop; aturan pinned/quota OQ-36 diputuskan, belum diimplementasi/diuji. |
 | FR-05 Controls | not-started | MVP; brightness internal v1; backend/permissions. |
 | FR-06 Notes | not-started | MVP; durable local autosave. |
 | FR-07 Salat | not-started | v1; metode terverifikasi OQ-11. |
@@ -83,7 +83,7 @@ Tidak ada fitur implemented, verified, atau released yang dapat dicatat saat ini
 
 ## 3. Hasil review dokumentasi
 
-Roadmap (2026-11-20): ROADMAP 1.0 ditambahkan. Fase PRD §8 dipecah menjadi milestone M0.1 sampai M2.6 dengan dependency, blocker OQ dan exit check yang merujuk PRD/VALIDATION. Urutan adalah usulan (agent's call), tanpa tanggal karena OQ-39 masih TBD. ARCHITECTURE §9 kini menunjuk ke ROADMAP agar urutan tidak tercatat dua kali.
+Roadmap (2026-11-20): ROADMAP 1.0 ditambahkan, lalu disetujui product owner sebagai versi 1.1 pada 2026-11-20. Fase PRD §8 dipecah menjadi milestone M0.1 sampai M2.6 dengan dependency, blocker OQ dan exit check yang merujuk PRD/VALIDATION. Urutan disetujui tanpa tanggal karena kapasitas dan owner bernama masih TBD (OQ-39). ARCHITECTURE §9 menunjuk ke ROADMAP agar urutan tidak tercatat dua kali.
 
 Review kesesuaian dengan PRD 0.6.18 (2026-11-17, putaran kedua):
 
@@ -104,11 +104,11 @@ Yang diperbaiki pada 2026-11-17 (putaran pertama):
 
 ## 4. Gap dan batas kesiapan
 
-Product owner masih perlu mengisi evidence/target outcome OQ-35 dan rencana owner/beta OQ-39. Engineering perlu menentukan minimum Qt/target distro dari uji OQ-37 dan protokol pengukuran OQ-38. Clipboard pinned/quota belum final (OQ-36).
+Keputusan rekomendasi OQ-35 sampai OQ-39 tercatat di DECISIONS 1.21. OQ-36 DECIDED: pin melewati retention, tetap kena quota; jika tak ada item unpinned untuk eviction, item baru ditolak dengan feedback. OQ-35 PARTIALLY DECIDED: baseline tugas sebelum target; bukti/target masih TBD. OQ-37 PARTIALLY DECIDED: Qt 6.8 kandidat dan dua desktop target diuji; minimum final menunggu bukti. OQ-38 PARTIALLY DECIDED: warm-up 5 menit, 100 sampel/interaksi, idle 10 menit, soak 24 jam; parameter QA lain masih TBD. OQ-39 tetap OPEN; owner, kapasitas dan rencana beta/rollback belum ditetapkan.
 
 Keputusan scope OQ-21 dan OQ-24 sampai OQ-33 sudah dipilih owner; rincian canonical ada di DECISIONS/FEATURES. OQ-32 selesai diputuskan, termasuk interval form awal kosong/wajib diisi, minimum 1 menit. Semua fitur tetap not-started: keputusan produk tidak membuktikan event Codex CLI, Microsoft tenant/auth, call actions, notification adapters, audio/shortcut, DND atau inhibitor Caffeine sudah bekerja.
 
-OQ-34 DEFERRED/P2 optional, menunggu contoh endpoint/auth owner; bukan blocker P1. Tidak ada pertanyaan fitur lama yang masih OPEN/PARTIALLY DECIDED pada OQ-21 sampai OQ-34; pertanyaan aktif tersisa OQ-35 sampai OQ-39, dengan kondisi OQ-11/15/17 tetap berlaku. Rekomendasi yang belum dipilih owner tidak berubah menjadi keputusan. Spike P0 yang independen tetap dapat dipersiapkan saat implementasi diminta.
+OQ-34 DEFERRED/P2 optional, menunggu contoh endpoint/auth owner; bukan blocker P1. OQ-35/37/38 PARTIALLY DECIDED dan OQ-39 OPEN; OQ-36 sudah diputuskan. Kondisi OQ-11/15/17 tetap berlaku. Spike P0 yang independen dapat dipersiapkan tanpa menunggu OQ-35/39.
 
 Belum ada bukti bug runtime karena aplikasi belum ada. Risiko di PRD adalah risiko desain, bukan temuan bug yang sudah direproduksi. Belum ada dokumen penggunaan runtime, endpoint IPC, skema DB, atau migration konkret untuk dirujuk agent; tambahkan ketika dipilih dan diuji.
 
@@ -116,7 +116,7 @@ Belum ada bukti bug runtime karena aplikasi belum ada. Risiko di PRD adalah risi
 
 Urutan milestone dan blocker keputusan ada di [ROADMAP](ROADMAP.md). Belum ada milestone yang dimulai.
 
-1. Tinjau revisi PRD dan urutan ROADMAP; jawab OQ yang memblokir milestone terdekat (OQ-38 sebelum M0.3, OQ-36 sebelum M1.3). Catat keputusan tanpa mengubah status draft menjadi approved otomatis.
+1. Untuk M0.1, Qt 6.8 boleh dipakai sebagai kandidat; tetapkan minimum Qt setelah uji OQ-37. Sahkan parameter OQ-38 tersisa sebelum M0.3; M1.3 implementasikan dan uji kebijakan OQ-36.
 2. Saat implementasi diminta, mulai M0.1 fondasi repo lalu M0.2 shell minimal; siapkan kombinasi distro/Qt/compositor/portal yang akan diuji. Review dokumentasi ini tidak memulai implementasi.
 3. Rekam bukti per FR/C/Q pada VALIDATION/CURRENT-STATE saat tersedia, termasuk revisi source dan environment; hasil spike yang mengubah desain masuk ADR/DECISIONS.
 4. Sebelum beta, penuhi gates packaging, license files/audit, upgrade/recovery, privacy dan support. Jangan membuat placeholder fitur P2.
